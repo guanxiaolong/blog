@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AST | 前端</title>
+    <meta name="generator" content="VuePress 1.5.1">
+    
+    <meta name="description" content="所见即所想 所想即所为">
+    <link rel="preload" href="/blog/assets/css/0.styles.56a09861.css" as="style"><link rel="preload" href="/blog/assets/js/app.b2309bdb.js" as="script"><link rel="preload" href="/blog/assets/js/2.b84ee096.js" as="script"><link rel="preload" href="/blog/assets/js/6.bbfbc895.js" as="script"><link rel="prefetch" href="/blog/assets/js/3.056277ef.js"><link rel="prefetch" href="/blog/assets/js/4.baf4feed.js"><link rel="prefetch" href="/blog/assets/js/5.7c50fe6f.js"><link rel="prefetch" href="/blog/assets/js/7.b2e5f51e.js"><link rel="prefetch" href="/blog/assets/js/8.ef30cb01.js"><link rel="prefetch" href="/blog/assets/js/9.540f4c7d.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.56a09861.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">前端</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/blog/JShome.html" class="nav-link">
+  JS
+</a></div> <a href="https://github.com/guanxiaolong/blog.git" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/blog/JShome.html" class="nav-link">
+  JS
+</a></div> <a href="https://github.com/guanxiaolong/blog.git" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/blog/" aria-current="page" class="sidebar-link">首页</a></li><li><a href="/blog/blog/ast.html" aria-current="page" class="active sidebar-link">AST抽象语法树</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/blog/ast.html#标签元素" class="sidebar-link">标签元素</a></li><li class="sidebar-sub-header"><a href="/blog/blog/ast.html#标签属性" class="sidebar-link">标签属性</a></li><li class="sidebar-sub-header"><a href="/blog/blog/ast.html#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/blog/blog/muchmuch.html" class="sidebar-link">多异步等待结果方案</a></li><li><a href="/blog/blog/fp.html" class="sidebar-link">浏览器指纹识别</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ast"><a href="#ast" class="header-anchor">#</a> AST</h1> <p>字符串转换成 抽象对象语法树AST。</p> <h1 id="如何做"><a href="#如何做" class="header-anchor">#</a> 如何做</h1> <p>我们知道 html 源码只是一个文本数据，尽管它里面包含复杂的含义和嵌套节点逻辑，但是对于浏览器，babel 或者 vue 来说，输入的就是一个长字符串，显然，纯粹的一个字符串是表示不出来啥含义，那么就需要转换成结构化的数据，能够清晰的表达每一节点是干嘛的。字符串的处理，自然而然就是强大的正则表达式了</p> <h1 id="step1-回顾正则表达式"><a href="#step1-回顾正则表达式" class="header-anchor">#</a> Step1 回顾正则表达式</h1> <ul><li>^ 匹配一个输入或一行的开头，/^a/匹配&quot;ab&quot;，而不匹配&quot;ba&quot;</li> <li>/匹配&quot;ba&quot;，而不匹配&quot;ab&quot;</li> <li><code>*</code>匹配前面元字符0次或多次，/ab*/将匹配a,ab,abb,abbb</li> <li><code>+</code>匹配前面元字符1次或多次，/ab+/将匹配ab,abb,但是不匹配a</li> <li>[ab] 字符集匹配，匹配这个集合中的任一一个字符(或元字符)，/[ab]/将匹配a,b,ab</li> <li>\w 组成单词匹配，匹配字母，数字，下划线，等于[a-zA-Z0-9]</li></ul> <h1 id="step2-匹配标签"><a href="#step2-匹配标签" class="header-anchor">#</a> Step2 匹配标签</h1> <h2 id="标签元素"><a href="#标签元素" class="header-anchor">#</a> 标签元素</h2> <p><code>&lt;div&gt;德玛西亚！！！&lt;/div&gt;</code><br>
+这个字符串用正则描述大致如下：</p> <p>以 &lt; 开头 跟着 div 字符，然后接着 &gt; ，然后是中文 “德玛西亚！！”，再跟着 &lt;/ ，然后继续是元素 div 最后已 &gt; 结尾。</p> <p><code>const ncname = '[a-zA-Z_][\w-.]*'</code></p> <p>组合起来：</p> <div class="language- extra-class"><pre><code>`&lt;${ncname}&gt;&lt;/${ncname}&gt;`  
+
+标签内可以是任意字符，那么任意字符如何描述呢？  
+\s 匹配一个空白字符 \S 匹配一个非空白字符 \w 是字母数字数字下划线  
+\W 是非\w的 
+同理还有\d和\D等。  
+我们通常采用\s和\S来描述任何字符（1、通用，2、规则简单，利于正则匹配  
+
+`&lt;${ncname}&gt;[\s\S]*&lt;/${ncname}&gt;`
+</code></pre></div><h2 id="标签属性"><a href="#标签属性" class="header-anchor">#</a> 标签属性</h2> <div class="language- extra-class"><pre><code>html标签上的属性名称有哪些呢，常见的有class,id,style,data-属性，当然也可以用户随便定义。但是属性名称我们也需要遵循原则，通常是用字母、下划线、冒号开头(vue的绑定属性用:开头)的，然后包含字母数字下划线中划线冒号和点的  
+ `const attrKey = /[a-zA-Z_:][-a-zA-Z0-9_:.]*/`  
+ html的属性的写法目前有以下几种：  
+ - `class=&quot;title&quot;`  
+ - `class='title'`  
+ - `class=title`  
+</code></pre></div><div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> attr <span class="token operator">=</span> <span class="token regex">/([a-zA-Z_:][-a-zA-Z0-9_:.]*)=(&quot;([^&quot;]*)&quot;|'([^']*)'|([^\s&quot;'=&lt;&gt;`]+))/</span>
+</code></pre></div><div class="language- extra-class"><pre><code> -  ” 开头 跟着多个不是 &quot; 的字符，然后跟着 ” 结尾
+ - ' 开头 跟着多个不是 ‘ 的字符，然后跟着 ' 结尾
+ -    不是（空格，”，’,=,&lt;,&gt;）的多个字符  
+</code></pre></div><h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code> <span class="token regex">/&lt;[a-zA-Z_][\w\-\.]*(?:\s+([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*=\s*(?:&quot;([^&quot;]*)&quot;|'([^']*)'|([^\s&quot;'=&lt;&gt;`]+)))*&gt;[\s\S]*&lt;\/[a-zA-Z_][\w\-\.]*&gt;/</span>
+</code></pre></div><h1 id="step3-code"><a href="#step3-code" class="header-anchor">#</a> Step3 Code</h1> <ul><li>标签的起始</li> <li>标签内的内容</li> <li>标签的结束</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> <span class="token constant">DOM</span> <span class="token operator">=</span> <span class="token regex">/&lt;[a-zA-Z_][\w\-\.]*(?:\s+([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*=\s*(?:&quot;([^&quot;]*)&quot;|'([^']*)'|([^\s&quot;'=&lt;&gt;`]+)))*&gt;[\s\S]*&lt;\/[a-zA-Z_][\w\-\.]*&gt;/</span><span class="token punctuation">;</span>
+<span class="token comment">// 增加()分组输出</span>
+<span class="token keyword">const</span> startTag <span class="token operator">=</span> <span class="token regex">/&lt;([a-zA-Z_][\w\-\.]*)((?:\s+([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*=\s*(?:&quot;([^&quot;]*)&quot;|'([^']*)'|([^\s&quot;'=&lt;&gt;`]+)))*)\s*(\/?)&gt;/</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> endTag <span class="token operator">=</span> <span class="token regex">/&lt;\/([a-zA-Z_][\w\-\.]*)&gt;/</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> attr <span class="token operator">=</span> <span class="token regex">/([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*=\s*(?:&quot;([^&quot;]*)&quot;|'([^']*)'|([^\s&quot;'=&lt;&gt;`]+))/g</span>
+</code></pre></div><h1 id="分解"><a href="#分解" class="header-anchor">#</a> 分解</h1> <p>我们尝试分解一段html ：</p> <p><code>'&lt;div class=&quot;classAttr&quot; data-type=&quot;dataType&quot; data-id=&quot;dataId&quot; style=&quot;color:red&quot;&gt;我是外层div&lt;span&gt;我是内层span&lt;/span&gt;&lt;/div&gt;';</code></p> <p>先声明一个根节点 用来存储解析完成的html<br> <code>const results = { node: &quot;root&quot;, child: [] };</code></p> <p>一个用来存储未完成匹配的数组<br> <code>const bufArray = [];</code></p> <p>判断html是否是起始标签，先用indexOf判断<br> <code>html.indexOf(&quot;&lt;&quot;) == 0</code></p> <p>然后用我们前面的正则匹配<br> <code>match = html.match(startTag);</code></p> <p>startTag分组输出，数组第一个为标签的起始到结束,结果如下：
+<code>&lt;div class=&quot;classAttr&quot; data-type=&quot;dataType&quot; data-id=&quot;dataId&quot; style=&quot;color:red&quot;&gt;</code></p> <p>删除处理过后的html<br> <code>html.substring(match[0].length);</code></p> <p>格式化起始标签<br> <code>match[0].replace(startTag, parseStartTag);</code></p> <p>解析起始标签parseStartTag,parseStartTag的核心内容是通过正则attr，分组解析标签的attr<br> <code>rest.replace(attr, function(match, name) { todo }</code></p> <p>判断结束标签跟开始标签流程差不多，结束以后要判断倒序查找匹配到的第一个标签
+<code>for (pos = bufArray.length - 1; pos &gt;= 0; pos--) { if (bufArray[pos].tag == tagName) { break; } }</code></p> <p>完整代码：<a href="https://github.com/guanxiaolong/codesource/blob/master/ast/ast.js" target="_blank" rel="noopener noreferrer">github<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/" class="prev router-link-active">
+        首页
+      </a></span> <span class="next"><a href="/blog/blog/muchmuch.html">
+        多异步等待结果方案
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.b2309bdb.js" defer></script><script src="/blog/assets/js/2.b84ee096.js" defer></script><script src="/blog/assets/js/6.bbfbc895.js" defer></script>
+  </body>
+</html>
