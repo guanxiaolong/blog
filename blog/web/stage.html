@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>防合并分支 | 前端</title>
+    <meta name="generator" content="VuePress 1.5.1">
+    
+    <meta name="description" content="所见即所想 所想即所为">
+    <link rel="preload" href="/blog/assets/css/0.styles.25c5abf4.css" as="style"><link rel="preload" href="/blog/assets/js/app.bec9973f.js" as="script"><link rel="preload" href="/blog/assets/js/2.2af148e9.js" as="script"><link rel="preload" href="/blog/assets/js/9.7f537387.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.13062abc.js"><link rel="prefetch" href="/blog/assets/js/11.e0a87a5d.js"><link rel="prefetch" href="/blog/assets/js/12.14e80f05.js"><link rel="prefetch" href="/blog/assets/js/3.5e2cffc3.js"><link rel="prefetch" href="/blog/assets/js/4.4f7e3c08.js"><link rel="prefetch" href="/blog/assets/js/5.67e57580.js"><link rel="prefetch" href="/blog/assets/js/6.882de069.js"><link rel="prefetch" href="/blog/assets/js/7.fd0424dc.js"><link rel="prefetch" href="/blog/assets/js/8.b5736c49.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.25c5abf4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">前端</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/blog/webHome.html" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/blog/serviceHome.html" class="nav-link">
+  后端
+</a></div> <a href="https://github.com/guanxiaolong/blog.git" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/blog/webHome.html" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/blog/serviceHome.html" class="nav-link">
+  后端
+</a></div> <a href="https://github.com/guanxiaolong/blog.git" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="防合并分支"><a href="#防合并分支" class="header-anchor">#</a> 防合并分支</h1> <h2 id="业务场景"><a href="#业务场景" class="header-anchor">#</a> 业务场景</h2> <p>当我们预发环境不够用时（比如只有一两个预发环境），但是同时有多个人需要上预发测试，通常我们的做法是将要测试的分支合并到一个测试主分支，例如（stage分支），这个分支通常会有不同版本的代码同事测试，为避免未上线的测试代码合并到主分支，我们需要限制stage合并到开发分支</p> <h2 id="思路一"><a href="#思路一" class="header-anchor">#</a> 思路一</h2> <p>首先我们在预发环境增加一个.stage文件，提交上去。</p> <p>使用husky的钩子函数（钩子函数就不一一讲了）pre-commit，在提交（git commit）的时候会触发这个钩子函数，写一个node检测文件的脚本，命名为：checkEnv.js</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;fs&quot;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> path<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> defPath<span class="token operator">=</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'../../'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> childProcess <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'child_process'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> branch <span class="token operator">=</span> childProcess<span class="token punctuation">.</span><span class="token function">execSync</span><span class="token punctuation">(</span><span class="token string">'git rev-parse --abbrev-ref HEAD'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/\s+/</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> files <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'.stage'</span><span class="token punctuation">,</span><span class="token string">'.stage1'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>files<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token operator">+</span>branch<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> files<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> item <span class="token operator">=</span> files<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment">// 检查文件是否存在于当前目录中。</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            fs<span class="token punctuation">.</span><span class="token function">accessSync</span><span class="token punctuation">(</span>defPath <span class="token operator">+</span> item<span class="token punctuation">,</span> fs<span class="token punctuation">.</span>constants<span class="token punctuation">.</span><span class="token constant">F_OK</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            console<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">&quot;\x1B[31m 存在&quot;</span><span class="token operator">+</span> item<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span> <span class="token operator">+</span><span class="token string">&quot;代码，请还原！&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;\x1B[0m&quot;</span><span class="token punctuation">)</span>
+            process<span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>我们需要对当前代码分支做一下判断，不然stage分支也无法提交代码</p></div> <p>检测到defPath目录含有.stage文件，会直接退出<br>
+钩子函数代码</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+<span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;checkEnv&quot;</span><span class="token operator">:</span> <span class="token string">&quot;node build/build_stage/checkEnv.js&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;husky&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;hooks&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;pre-commit&quot;</span><span class="token operator">:</span> <span class="token string">&quot;npm run checkEnv&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="思路二"><a href="#思路二" class="header-anchor">#</a> 思路二</h2> <p>在webpack build的时候做拦截，需要简单的封装，在build之前拦截，提取webpack的build的入口方法，在这之前增加checkEnv</p> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>两种方法都是检测.stage文件是否存在，区别是在commit的过程中可以用命令绕过，build的过程中无法避免，当然手动删除.stage也可以规避检测</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.bec9973f.js" defer></script><script src="/blog/assets/js/2.2af148e9.js" defer></script><script src="/blog/assets/js/9.7f537387.js" defer></script>
+  </body>
+</html>
